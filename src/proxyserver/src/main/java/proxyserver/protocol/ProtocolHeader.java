@@ -6,10 +6,10 @@ public class ProtocolHeader {
 	private byte accountLength;
 	private String userAccount;
 	private int cmd;
-	private int seq;
-	private int offset;
+	private short seq;
+	private byte offset;
 	private byte flag;
-	private byte[] opt;
+	private short statusCode;
 	
 	public byte getMark() {
 		return mark;
@@ -44,13 +44,13 @@ public class ProtocolHeader {
 	public int getSeq() {
 		return seq;
 	}
-	public void setSeq(int seq) {
+	public void setSeq(short seq) {
 		this.seq = seq;
 	}
 	public int getOffset() {
 		return offset;
 	}
-	public void setOffset(int offset) {
+	public void setOffset(byte offset) {
 		this.offset = offset;
 	}
 	public byte getFlag() {
@@ -59,11 +59,11 @@ public class ProtocolHeader {
 	public void setFlag(byte flag) {
 		this.flag = flag;
 	}
-	public byte[] getOpt() {
-		return opt;
+	public short getStatusCode() {
+		return statusCode;
 	}
-	public void setOpt(byte[] opt) {
-		this.opt = opt;
+	public void setStatusCode(short statusCode) {
+		this.statusCode = statusCode;
 	}
 	
 }

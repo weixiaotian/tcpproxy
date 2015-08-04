@@ -1,6 +1,7 @@
 package proxyserver.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.AdaptiveRecvByteBufAllocator;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
@@ -27,6 +28,7 @@ public class ProxyServer {
              .option(ChannelOption.TCP_NODELAY, true)
              .option(ChannelOption.SO_KEEPALIVE, false)
              .option(ChannelOption.RCVBUF_ALLOCATOR, AdaptiveRecvByteBufAllocator.DEFAULT)
+             .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
              .handler(new ProxyServerInitializer());
             b.bind(port).sync().channel().closeFuture().sync();
         }catch(Exception ex){
