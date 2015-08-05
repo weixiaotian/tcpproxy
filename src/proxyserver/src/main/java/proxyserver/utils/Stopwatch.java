@@ -9,22 +9,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class Stopwatch
 {
-	public interface Watchable
-	{
-		void end(long nanos);
-		void fail(long nanos, String message);
-		void fail(long nanos, Throwable error);
-	}
 	
 	private long begin;
-	private AtomicBoolean isDone = new AtomicBoolean(false);
-	private Watchable watchee;
-	
-	public Stopwatch(Watchable watchee)
-	{
-		this.watchee = watchee;
-		begin = System.nanoTime();
-	}
 	
 	public Stopwatch()
 	{
@@ -54,29 +40,5 @@ public class Stopwatch
 	public double getMillseconds()
 	{
 		return (double)(System.nanoTime() - begin) / 1E6;
-	}
-	
-	public void end()
-	{
-		long nanos = System.nanoTime() - begin;
-		if (isDone.compareAndSet(false, true) && watchee != null) {
-			watchee.end(nanos);
-		}
-	}
-	
-	public void fail(String message)
-	{
-		long nanos = System.nanoTime() - begin;
-		if (isDone.compareAndSet(false, true) && watchee != null) {
-			watchee.fail(nanos, message);
-		}
-	}
-	
-	public void fail(Throwable error)
-	{
-		long nanos = System.nanoTime() - begin;
-		if (isDone.compareAndSet(false, true) && watchee != null) {
-			watchee.fail(nanos, error);
-		}
 	}
 }
