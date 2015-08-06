@@ -16,4 +16,15 @@ public class ProtocolMessage {
 	public void setBody(byte[] body) {
 		this.body = body;
 	}
+	
+	public boolean isRequest(){
+		if(header == null){
+			return true;
+		}
+		if(header.getMark() == 0x80){
+			return true;
+		}else{
+			return false;
+		}
+	}
 }

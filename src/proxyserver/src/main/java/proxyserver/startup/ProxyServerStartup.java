@@ -3,6 +3,7 @@ package proxyserver.startup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import proxyserver.internal.InternalServer;
 import proxyserver.netty.ProxyServer;
 import proxyserver.utils.ProxyConfig;
 
@@ -28,6 +29,15 @@ public class ProxyServerStartup {
 			log.info("step 2:proxy server start ok");
 		}catch(Exception ex){
 			log.error("proxy server start error!", ex);
+			return;
+		}
+		
+		try{
+			InternalServer interserver = new InternalServer(ProxyConfig.getInstance().getInternalPort());
+			interserver.start();
+			log.info("step 3:internal server start ok");
+		}catch(Exception ex){
+			log.error("internal server start error!", ex);
 			return;
 		}
 	}
