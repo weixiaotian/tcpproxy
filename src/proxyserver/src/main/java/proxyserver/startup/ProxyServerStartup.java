@@ -1,5 +1,6 @@
 package proxyserver.startup;
 
+import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -8,6 +9,9 @@ import proxyserver.netty.ProxyServer;
 import proxyserver.utils.ProxyConfig;
 
 public class ProxyServerStartup {
+	static{
+		PropertyConfigurator.configure("log4j.properties");
+	}
 	private static Logger log = LoggerFactory.getLogger(ProxyServerStartup.class);
 	public static void main(String[] args) {
 		if(args.length <=0){
