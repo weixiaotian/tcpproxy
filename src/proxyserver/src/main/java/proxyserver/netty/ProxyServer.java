@@ -48,10 +48,9 @@ public class ProxyServer {
 				}
 			});
         }catch(Exception ex){
-        	throw ex;
-        }finally {
-            workerGroup.shutdownGracefully();
+        	workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();
+        	throw ex;
         }
 	}
 	

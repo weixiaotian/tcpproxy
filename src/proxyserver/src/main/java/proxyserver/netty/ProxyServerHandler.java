@@ -43,6 +43,9 @@ public class ProxyServerHandler extends SimpleChannelInboundHandler<ProtocolMess
 		try{
 			Attribute<Object> key =  ctx.channel().attr(channelKey);
 			String account = (String)key.get();
+			if(account == null){
+				return;
+			}
 			ClientSession session = SessionManager.instance().getClientSession(account);
 			if(session != null){
 				SessionManager.instance().removeSession(account);

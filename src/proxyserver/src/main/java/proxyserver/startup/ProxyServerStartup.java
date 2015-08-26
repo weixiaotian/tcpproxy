@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import proxyserver.internal.InternalServer;
 import proxyserver.netty.ProxyServer;
+import proxyserver.session.SessionManager;
 import proxyserver.utils.ProxyConfig;
 
 public class ProxyServerStartup {
@@ -44,5 +45,8 @@ public class ProxyServerStartup {
 			log.error("internal server start error!", ex);
 			return;
 		}
+		
+		SessionManager.instance().start();
+		log.info("step 4:SessionManager start ok");
 	}
 }

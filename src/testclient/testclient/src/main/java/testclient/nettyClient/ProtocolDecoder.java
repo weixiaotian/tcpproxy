@@ -1,10 +1,10 @@
-package proxyserver.netty;
+package testclient.nettyClient;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
-import proxyserver.protocol.ProtocolHeader;
-import proxyserver.protocol.ProtocolMessage;
+import testclient.protocol.ProtocolHeader;
+import testclient.protocol.ProtocolMessage;
 
 public class ProtocolDecoder extends LengthFieldBasedFrameDecoder{
 	public ProtocolDecoder() {

@@ -1,9 +1,9 @@
-package proxyserver.netty;
+package testclient.nettyClient;
 
-import proxyserver.protocol.ProtocolMessage;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
+import testclient.protocol.ProtocolMessage;
 
 
 public class ProtocolEncoder extends MessageToByteEncoder<ProtocolMessage>{

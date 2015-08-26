@@ -17,27 +17,27 @@ public class ProxyConfig {
 	
 	private static void fillBean(Properties props) {
 		// TODO Auto-generated method stub
-		if(props.contains("clientport")){
+		if(props.containsKey("clientport")){
 			instance.clientPort = Integer.valueOf(props.getProperty("clientport"));
 		}
 		
-		if(props.contains("intenalport")){
+		if(props.containsKey("intenalport")){
 			instance.internalPort = Integer.valueOf(props.getProperty("intenalport"));
 		}
 		
-		if(props.contains("maxsession")){
+		if(props.containsKey("maxsession")){
 			instance.maxSession = Integer.valueOf(props.getProperty("maxsession"));
 		}
 		
-		if(props.contains("timeoutsec")){
+		if(props.containsKey("timeoutsec")){
 			instance.timeoutSec = Integer.valueOf(props.getProperty("timeoutsec"));
 		}
 		
-		if(props.contains("logpath")){
+		if(props.containsKey("logpath")){
 			instance.logPath = String.valueOf(props.getProperty("logpath"));
 		}
 		
-		if(props.contains("authcmd")){
+		if(props.containsKey("authcmd")){
 			instance.authCmd = Integer.valueOf(props.getProperty("authcmd"));
 		}
 	}

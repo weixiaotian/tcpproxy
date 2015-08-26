@@ -16,8 +16,11 @@ public class SessionManager {
 	private Thread checkThread;
 	private SessionManager(){
 		checkThread = new Thread(new CheckSessionAction());
-		checkThread.setDaemon(true);
+		//checkThread.setDaemon(true);
 		checkThread.setName("Check Session Thread");
+	}
+	
+	public void start(){
 		checkThread.start();
 	}
 	

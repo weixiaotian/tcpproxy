@@ -1,0 +1,14 @@
+#客户端接入端口号
+clientport=8080
+
+#内部下行指令端口号
+intenalport=7001
+
+#log输出目录
+#logpath=
+
+#最大Session数
+maxsession=100000
+
+#Session中无信令秒数后server主动关闭连接
+timeoutsec=300
